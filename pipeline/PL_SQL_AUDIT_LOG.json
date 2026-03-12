@@ -3,64 +3,6 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Stored procedure1",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Copy SQL Data",
-						"dependencyConditions": [
-							"Succeeded"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureName": "[audit].[loadstatus]",
-					"storedProcedureParameters": {
-						"dataread": {
-							"value": {
-								"value": "@activity('Copy SQL Data').output.dateread",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"errorid": {
-							"value": null,
-							"type": "String"
-						},
-						"errormessage": {
-							"value": null,
-							"type": "String"
-						},
-						"loadstatus": {
-							"value": {
-								"value": "@activity('Copy SQL Data').output.executionDetails[0].status",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"TableName": {
-							"value": {
-								"value": "concat(pipeline().parameters.schemaname,'_',pipeline().parameters.tablename)",
-								"type": "Expression"
-							},
-							"type": "String"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "SqlServer1",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
 				"name": "Copy SQL Data",
 				"type": "Copy",
 				"dependsOn": [],
@@ -79,12 +21,14 @@
 						"partitionOption": "None"
 					},
 					"sink": {
-						"type": "ParquetSink",
+						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
-							"type": "ParquetWriteSettings"
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".txt"
 						}
 					},
 					"enableStaging": false,
@@ -105,81 +49,15 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "DS_SQL_PARQUET",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					}
 				]
-			},
-			{
-				"name": "Stored procedure1_copy1",
-				"type": "SqlServerStoredProcedure",
-				"dependsOn": [
-					{
-						"activity": "Copy SQL Data",
-						"dependencyConditions": [
-							"Failed"
-						]
-					}
-				],
-				"policy": {
-					"timeout": "0.12:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"storedProcedureName": "[audit].[loadstatus]",
-					"storedProcedureParameters": {
-						"dataread": {
-							"value": {
-								"value": "@activity('Copy SQL Data').output.dataread",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"errorid": {
-							"value": {
-								"value": "@activity('Copy SQL Data').output.errors[0].code\r\n",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"errormessage": {
-							"value": {
-								"value": "@activity('Copy SQL Data').output.errors[0].message\r\n",
-								"type": "Expression"
-							},
-							"type": "String"
-						},
-						"loadstatus": {
-							"value": "@activity('Copy SQL Data').output.executionDetails[0].status",
-							"type": "String"
-						},
-						"TableName": {
-							"value": {
-								"value": "concat(pipeline().parameters.schemaname,'_',pipeline().parameters.tablename)\n",
-								"type": "Expression"
-							},
-							"type": "String"
-						}
-					}
-				},
-				"linkedServiceName": {
-					"referenceName": "SqlServer1",
-					"type": "LinkedServiceReference"
-				}
 			}
 		],
 		"parameters": {
 			"schemaname": {
-				"type": "string",
-				"defaultValue": "dbo"
-			},
-			"tablename": {
-				"type": "string",
-				"defaultValue": "economy"
+				"type": "string"
 			}
 		},
 		"annotations": []
