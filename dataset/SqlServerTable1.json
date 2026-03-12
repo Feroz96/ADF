@@ -2,7 +2,7 @@
 	"name": "SqlServerTable1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "SQLOnprem",
+			"referenceName": "SqlServer1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
@@ -66,8 +66,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "Person",
-			"table": "Person"
+			"schema": "dbo",
+			"table": "economy"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
