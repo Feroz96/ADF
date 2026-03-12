@@ -1,0 +1,84 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-dev-proj1dev"
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
+		"FileServer2_password": {
+			"value": ""
+		},
+		"SQLOnprem_password": {
+			"value": ""
+		},
+		"Snowflake1_password": {
+			"value": ""
+		},
+		"SqlServer1_password": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://sgdevproj1adls.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://sgdevproj1dev.dfs.core.windows.net/"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "\\\\SAJANA\\ADF_FileShare"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "Feroz"
+		},
+		"FileServer2_properties_typeProperties_host": {
+			"value": "\\\\SAJANA\\PushFileADLS"
+		},
+		"FileServer2_properties_typeProperties_userId": {
+			"value": "Feroz"
+		},
+		"SQLOnprem_properties_typeProperties_server": {
+			"value": "SAJANA\\SQLEXPRESS"
+		},
+		"SQLOnprem_properties_typeProperties_database": {
+			"value": "AdventureWorks2025"
+		},
+		"SQLOnprem_properties_typeProperties_userName": {
+			"value": "sa"
+		},
+		"Snowflake1_properties_typeProperties_database": {
+			"value": "SFDB"
+		},
+		"Snowflake1_properties_typeProperties_role": {
+			"value": "ACCOUNTADMIN"
+		},
+		"Snowflake1_properties_typeProperties_host": {
+			"value": "PLBAQQY-HM18913.snowflakecomputing.com"
+		},
+		"SqlServer1_properties_typeProperties_server": {
+			"value": "SAJANA\\SQLEXPRESS"
+		},
+		"SqlServer1_properties_typeProperties_database": {
+			"value": "TESTDB"
+		},
+		"SqlServer1_properties_typeProperties_userName": {
+			"value": "FerozSQL"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
