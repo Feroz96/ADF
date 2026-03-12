@@ -1,0 +1,84 @@
+{
+	"name": "DelimitedText3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "index.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "location_key",
+				"type": "String"
+			},
+			{
+				"name": "place_id",
+				"type": "String"
+			},
+			{
+				"name": "wikidata_id",
+				"type": "String"
+			},
+			{
+				"name": "datacommons_id",
+				"type": "String"
+			},
+			{
+				"name": "country_code",
+				"type": "String"
+			},
+			{
+				"name": "country_name",
+				"type": "String"
+			},
+			{
+				"name": "subregion1_code",
+				"type": "String"
+			},
+			{
+				"name": "subregion1_name",
+				"type": "String"
+			},
+			{
+				"name": "subregion2_code",
+				"type": "String"
+			},
+			{
+				"name": "subregion2_name",
+				"type": "String"
+			},
+			{
+				"name": "locality_code",
+				"type": "String"
+			},
+			{
+				"name": "locality_name",
+				"type": "String"
+			},
+			{
+				"name": "iso_3166_1_alpha_2",
+				"type": "String"
+			},
+			{
+				"name": "iso_3166_1_alpha_3",
+				"type": "String"
+			},
+			{
+				"name": "aggregation_level",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

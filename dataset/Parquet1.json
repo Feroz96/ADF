@@ -1,0 +1,97 @@
+{
+	"name": "Parquet1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "outputdev"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": [
+			{
+				"name": "location_key",
+				"type": "UTF8"
+			},
+			{
+				"name": "population",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_male",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_female",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_rural",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_urban",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_largest_city",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_clustered",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_density",
+				"type": "UTF8"
+			},
+			{
+				"name": "human_development_index",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_00_09",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_10_19",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_20_29",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_30_39",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_40_49",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_50_59",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_60_69",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_70_79",
+				"type": "UTF8"
+			},
+			{
+				"name": "population_age_80_and_older",
+				"type": "UTF8"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
